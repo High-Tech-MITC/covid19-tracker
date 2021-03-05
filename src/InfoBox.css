@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.Info{
+    width: 30%;
+}
+.InfoBox{
+    padding: 0;
+    margin: 2%;
+    border-bottom-left-radius: 7%;
+    border-bottom-right-radius: 7%;
+    box-shadow: .2rem .2rem 2rem .1rem black;
+}
+
+
+.InfoBox__CardContent{
+    margin: 0;
+    padding: 0;
+    /* background-color: black; */
+    height: 30px;
+}
+
+.InfoBox__title{
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    font-family: Pacifico;
+}
+
+.InfoBox__caseData{
+    text-align: center;
+}
+
+.info__data{
+    padding: 20px;
+}
+
+@media (max-width:640px){
+    .InfoBox__CardContent{
+        max-height: 10px;
+    }
+}
+
+.InfoBox__cases{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}

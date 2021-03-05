@@ -2,23 +2,38 @@ import React from 'react';
 import {
     Card, CardContent, Typography
 } from '@material-ui/core'
+import './InfoBox.css'
+import Anime, { anime } from 'react-anime'
 
-const InfoBoxes = ({ title, cases, total }) => {
+const InfoBoxes = ({ title, cases, total, bgColor, animeDelay }) => {
     return (
-        <Card className="InfoBox">
-            <CardContent>
-                {/* title */}
-                <Typography className="InfoBox__title" color="textSecondary">
-                    {title}
-                </Typography>
-                {/* number of cases */}
-                <h2 className="InfoBox__cases">{cases}</h2>
-                {/* total */}
-                <Typography className="InfoBox__total" color="textSecondary">
-                    {total}
-                </Typography>
-            </CardContent>
-        </Card>
+        <div className="Info">
+            <Anime delay={animeDelay} rotate={-5} duration={1000} scale={1.1}>
+                <div className="InfoBox">
+                    <div style={{ backgroundColor: bgColor }} className="InfoBox__CardContent">
+                        <h4 className="InfoBox__title">
+                            {title}
+                        </h4>
+                    </div>
+                    <div className="info__data">
+                        {/* title */}
+
+                        {/* number of cases */}
+                        <div className="InfoBox__caseData">
+                            <h4 className="InfoBox__cases">
+                                <div>Today</div>
+                                <div>{cases}</div>
+                            </h4>
+                            {/* total */}
+                            <h4 className="InfoBox__cases">
+                                <div>Total</div>
+                                <div>{total}</div>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </Anime>
+        </div>
     );
 }
 

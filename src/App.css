@@ -1,15 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 *{
+    padding: 0;
     margin: 0;
+    color: white;
 }
 
 body{
     background-color: #f5f6fa;
+    /* background-image: url('https://www.un.org/sites/un2.un.org/files/covid-19.svg'); */
+    /* background-size: cover; */
+    background: rgb(42, 38, 38);
 }
 
 .app{
     display: flex;
     justify-content: space-evenly;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .app__header{
@@ -17,20 +24,50 @@ body{
     align-items: center;
     margin-bottom: 20px;
     justify-content: space-between;
-    margin: 1%;  /* added */
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    color: black;
+    font-family: Pacifico;
 }
 
 .app__left{
     flex: 0.8;
 }
 
+.app__dropdown{
+    background-color: rgb(67, 124, 204);
+    border-radius: 20px;
+    color: black;
+}
+
+.app__logo{
+    margin-right: 20px;
+}
 .app__stats{
     display: flex;
     justify-content: space-between;
+}
+
+.app__shadow{
+    border-radius: 20px;
+    box-shadow: .2rem .2rem 2rem .1rem black;
 }
 
 @media (max-width:990px){
     .app{
         flex-direction: column;
     }
+}
+
+.app__right{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 20px 0px 10px 20px;
+    height: 400px;
+    background: linear-gradient(rgb(50, 78, 83), rgb(121, 94, 94));
+}
+
+.app__menuItem{
+    color: black;
 }
