@@ -9,7 +9,6 @@ import {
     MenuItem,
     Card,
     CardContent,
-    duration
 } from '@material-ui/core'
 import { sortData } from './util';
 import 'leaflet/dist/leaflet.css'

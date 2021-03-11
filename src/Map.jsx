@@ -31,7 +31,14 @@ const Map = ({ countries, country, center, zoom }) => {
                     }
                     return (
                         <CircleMarker radius={reduceSquare(country.cases)} color="red" center={country.center}>
-                            <Popup>hello</Popup>
+                            <Popup>
+                                <div className="map__popup">
+                                    <h2 className="black">{country.name}</h2>
+                                    <div className="cases black">
+                                        {country.cases}
+                                    </div>
+                                </div>
+                            </Popup>
                         </CircleMarker>
                     )
 

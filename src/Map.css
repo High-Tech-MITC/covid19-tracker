@@ -12,5 +12,10 @@
 }
 
 .map__popup{
+    text-align: center;
+    color: black;
+}
+
+.black{
     color: black;
 }
