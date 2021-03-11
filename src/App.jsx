@@ -104,7 +104,7 @@ const App = () => {
 
                     <Anime scale={0.9} direction="" easing="easeInCubic" duration={3000} delay={0}>
                         <div className="app__stats">
-                            <InfoBox title="Coronavirus cases" animeDelay={700} bgColor="#F59E0B" cases={countryInfo.todayCases} total={countryInfo.cases} />
+                            <InfoBox title="cases" animeDelay={700} bgColor="#F59E0B" cases={countryInfo.todayCases} total={countryInfo.cases} />
                             <InfoBox title="recovered" animeDelay={400} bgColor="#10B981" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
                             <InfoBox title="Deaths" animeDelay={600} bgColor="#EF4444" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
                         </div>
@@ -112,7 +112,7 @@ const App = () => {
 
                     {/* map */}
                     <Anime scale={1.1} translateY={50} duration={2000} delay={1000}>
-                        <Map countries={mapCountry} center={mapCenter} zoom={mapZoom} />
+                        <Map countries={mapCountry} country={country} center={mapCenter} zoom={mapZoom} />
                     </Anime>
 
                     <Anime scale={1.1} translateY={30} duration={1000} delay={700}>

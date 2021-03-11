@@ -10,3 +10,7 @@
 .map .leaflet-container{
     height: 100%;
 }
+
+.map__popup{
+    color: black;
+}

@@ -21,12 +21,12 @@ const InfoBoxes = ({ title, cases, total, bgColor, animeDelay }) => {
                         {/* number of cases */}
                         <div className="InfoBox__caseData">
                             <h4 className="InfoBox__cases">
-                                <div>Today</div>
+                                <div className="InfoBox__dateHolder">Today</div>
                                 <div>{cases}</div>
                             </h4>
                             {/* total */}
                             <h4 className="InfoBox__cases">
-                                <div>Total</div>
+                                <div className="InfoBox__dateHolder">Total</div>
                                 <div>{total}</div>
                             </h4>
                         </div>
