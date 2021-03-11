@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core'
 import { sortData } from './util';
 import 'leaflet/dist/leaflet.css'
-import Anime, { anime } from 'react-anime'
+import Anime from 'react-anime'
 
 const App = () => {
 
@@ -23,7 +23,7 @@ const App = () => {
     const [tableData, setTableData] = useState([]);
     let [mapCenter, setMapCenter] = useState([43.45, 35.3])
     const [mapZoom, setMapZoom] = useState(4)
-    const [mapCountry, setMapCountry] = useState({})
+    // const [mapCountry, setMapCountry] = useState({})
 
     useEffect(() => {
         fetch('http://disease.sh/v3/covid-19/all')
@@ -47,7 +47,7 @@ const App = () => {
                     }));
                     const sortedData = sortData(data)
                     setTableData(sortedData)
-                    setMapCountry(data)
+                    // setMapCountry(data)
                     setCountries(countries)
                 })
         }
@@ -76,11 +76,12 @@ const App = () => {
             <div className="app__header">
 
                 <h1 className="app__header">
-                    <Anime rotate={360} duration={100000} complete={() => duration} direction="normal">
+                    <Anime rotate={360} duration={100000}>
                         <img width={40} className="app__logo" src="https://www.un.org/sites/un2.un.org/files/covid-19.svg" style={{ bgColor: "red" }} alt="covid-19"></img>
                     </Anime>
                     Tracker
                 </h1>
+
                 <div className="app__dropdown">
                     <FormControl>
                         <Select
@@ -97,6 +98,7 @@ const App = () => {
                         </Select>
                     </FormControl>
                 </div>
+
             </div>
             <div className="app">
                 <div className="app__left">
