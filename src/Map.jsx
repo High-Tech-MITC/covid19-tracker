@@ -24,6 +24,22 @@ const Map = ({ countries, country, center, zoom }) => {
                     </Popup>
                 </CircleMarker>
 
+                {countries.map(country => {
+                    console.log(country);
+                    const reduceSquare = (value) => {
+                        return (
+                            Math.floor(Math.sqrt(value / 1000))
+                        )
+                    }
+                    return (
+                        <CircleMarker radius={reduceSquare(country.cases)} color="red" center={country.center}>
+                            <Popup>hello</Popup>
+                        </CircleMarker>
+                    )
+
+                })}
+
+                {console.log(countries[9])}
             </LeafletMap>
         </div>
     );

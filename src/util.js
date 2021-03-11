@@ -21,3 +21,8 @@ export const sortData = (data) => {
     return sortedData.sort((a, b) => a.cases > b.cases ? -1 : 1)
 }
 
+export const showCaseCircle = (data) => {
+    for (let country in data) {
+        console.log(country)
+    }
+}

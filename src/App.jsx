@@ -42,7 +42,8 @@ const App = () => {
                         value: country.countryInfo.iso2,
                         cases: country.cases,
                         recovered: country.recovered,
-                        deaths: country.deaths
+                        deaths: country.deaths,
+                        center: [country.countryInfo.lat, country.countryInfo.long]
                     }));
                     const sortedData = sortData(data)
                     setTableData(sortedData)
@@ -112,7 +113,7 @@ const App = () => {
 
                     {/* map */}
                     <Anime scale={1.1} translateY={50} duration={2000} delay={1000}>
-                        <Map countries={mapCountry} country={country} center={mapCenter} zoom={mapZoom} />
+                        <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
                     </Anime>
 
                     <Anime scale={1.1} translateY={30} duration={1000} delay={700}>
