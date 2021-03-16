@@ -42,7 +42,8 @@ body{
 }
 
 .app__logo{
-    margin-right: 20px;
+    /* margin-right: 20px; */
+    /* padding: 1px; */
 }
 .app__stats{
     display: flex;

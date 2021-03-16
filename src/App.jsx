@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import InfoBox from './InfoBox'
 import Map from './Map'
 import Table from './Table'
+import Footer from './Footer'
 import './App.css'
 import {
     FormControl,
@@ -13,6 +14,12 @@ import {
 import { sortData } from './util';
 import 'leaflet/dist/leaflet.css'
 import Anime from 'react-anime'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom"
 
 const App = () => {
 
@@ -71,14 +78,15 @@ const App = () => {
     }
 
     return (
-        <div>
+        <Router>
             <div className="app__header">
 
                 <h1 className="app__header">
+                    Tr
                     <Anime rotate={360} duration={100000}>
                         <img width={40} className="app__logo" src="https://www.un.org/sites/un2.un.org/files/covid-19.svg" style={{ bgColor: "red" }} alt="covid-19"></img>
                     </Anime>
-                    Tracker
+                    cker
                 </h1>
 
                 <div className="app__dropdown">
@@ -114,7 +122,14 @@ const App = () => {
 
                     {/* map */}
                     <Anime scale={1.1} translateY={50} duration={2000} delay={1000}>
-                        <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
+                        <Switch>
+                            <Route path="/">
+                                <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
+                            </Route>
+                            <Route path="/team">
+                                <h1>team</h1>
+                            </Route>
+                        </Switch>
                     </Anime>
 
                     <Anime scale={1.1} translateY={30} duration={1000} delay={700}>
@@ -132,7 +147,9 @@ const App = () => {
 
             </div >
 
-        </div>
+            <Footer />
+
+        </Router>
 
     );
 }
