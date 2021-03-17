@@ -5,7 +5,7 @@ import Anime from 'react-anime'
 const InfoBoxes = ({ title, cases, total, bgColor, animeDelay }) => {
     return (
         <div className="Info">
-            <Anime delay={animeDelay} rotate={-5} duration={1000} scale={1.1}>
+            <Anime delay={animeDelay} rotate={0} duration={1000} scale={1.1}>
                 <div className="InfoBox">
                     <div style={{ backgroundColor: bgColor }} className="InfoBox__CardContent">
                         <h4 className="InfoBox__title">

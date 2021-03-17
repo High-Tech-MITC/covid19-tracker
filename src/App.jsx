@@ -78,7 +78,7 @@ const App = () => {
     }
 
     return (
-        <Router>
+        <div>
             <div className="app__header">
 
                 <h1 className="app__header">
@@ -122,20 +122,13 @@ const App = () => {
 
                     {/* map */}
                     <Anime scale={1.1} translateY={50} duration={2000} delay={1000}>
-                        <Switch>
-                            <Route path="/">
-                                <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
-                            </Route>
-                            <Route path="/team">
-                                <h1>team</h1>
-                            </Route>
-                        </Switch>
+                        <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
                     </Anime>
 
                     <Anime scale={1.1} translateY={30} duration={1000} delay={700}>
                         <Card className="app__right">
                             <CardContent>
-                                <h3>Live cases by country</h3>
+                                <h3>Highest Country Cases</h3>
 
                                 {/* table */}
                                 <Table countries={tableData} />
@@ -149,7 +142,7 @@ const App = () => {
 
             <Footer />
 
-        </Router>
+        </div>
 
     );
 }
