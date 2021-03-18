@@ -7,16 +7,19 @@
 }
 
 body{
-    background-color: #f5f6fa;
-    /* background-image: url('https://www.un.org/sites/un2.un.org/files/covid-19.svg'); */
-    /* background-size: cover; */
-    background: rgb(42, 38, 38);
+    background-color: #171c2b;
 }
 
 .app{
     display: flex;
     justify-content: space-evenly;
-    /* padding: 20px; */
+    padding: 0px;
+}
+
+.app__map{
+    background-color: whitesmoke;
+    /* width: 100vw; */
+    padding: 30px;
 }
 
 .app__header{
@@ -41,6 +44,7 @@ body{
     color: black;
     position: fixed;
     right: 0;
+    /* top: 10px; */
 }
 
 .app__logo{
@@ -65,10 +69,12 @@ body{
     }
 }
 
-.app__right{
+.app__table{
     margin-top: 100px;
     margin-bottom: 100px;
-    padding: 20px 0px 10px 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* padding: 20px 0px 10px 20px; */
     height: 400px;
     background: linear-gradient(rgb(50, 78, 83), rgb(121, 94, 94));
 }

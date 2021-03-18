@@ -41,12 +41,6 @@
     .InfoBox__CardContent{
         max-height: 10px;
     }
-    .InfoBox__caseData{
-        font-size: 13px;
-    }
-    .InfoBox__dateHolder{
-        color: green;
-    }
 }
 
 .InfoBox__cases{

@@ -121,26 +121,33 @@ const App = () => {
                     </Anime>
 
                     {/* map */}
-                    <Anime scale={1.1} translateY={50} duration={2000} delay={1000}>
-                        <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
-                    </Anime>
 
-                    <Anime scale={1.1} translateY={30} duration={1000} delay={700}>
-                        <Card className="app__right">
-                            <CardContent>
-                                <h3>Highest Country Cases</h3>
 
-                                {/* table */}
-                                <Table countries={tableData} />
-                            </CardContent>
-                        </Card>
-                    </Anime>
+
 
                 </div>
 
             </div >
 
-            <Footer />
+            <div className="app__map">
+                <Anime scale={1} direction="alternate" duration={2000} delay={1000}>
+                    <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
+                </Anime>
+            </div>
+
+            <div>
+                <Card className="app__table">
+                    <CardContent>
+                        <h3>Highest Country Cases</h3>
+
+                        {/* table */}
+                        <Table countries={tableData} />
+                    </CardContent>
+                </Card>
+            </div>
+
+
+            {/* <Footer /> */}
 
         </div>
 
