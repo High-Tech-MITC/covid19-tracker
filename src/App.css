@@ -3,11 +3,11 @@
 *{
     padding: 0;
     margin: 0;
-    color: white;
+    /* color: white; */
 }
 
 body{
-    background-color: #171c2b;
+    /* background-color: #171c2b; */
 }
 
 .app{
@@ -22,7 +22,17 @@ body{
     padding: 30px;
 }
 
+.app__mainheader{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: green;
+}
+
 .app__header{
+    /* right: 0; */
     display:flex;
     align-items: center;
     margin-bottom: 20px;
@@ -38,18 +48,16 @@ body{
     flex: 0.8;
 }
 
-.app__dropdown{
+.app__countryList{
+    margin: 5%;
     background-color: rgb(67, 124, 204);
     border-radius: 20px;
     color: black;
-    position: fixed;
-    right: 0;
-    /* top: 10px; */
+    /* max-height: 5vh; */
 }
 
-.app__logo{
-    /* margin-right: 20px; */
-    /* padding: 1px; */
+.app__formControl{
+    width: 100%;
 }
 .app__stats{
     height: 90vh;

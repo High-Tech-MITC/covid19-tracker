@@ -79,7 +79,7 @@ const App = () => {
 
     return (
         <div>
-            <div className="app__header">
+            {/* <div className="app__mainheader">
 
                 <h1 className="app__header">
                     Tr
@@ -88,24 +88,23 @@ const App = () => {
                     </Anime>
                     cker
                 </h1>
+            </div> */}
 
-                <div className="app__dropdown">
-                    <FormControl>
-                        <Select
-                            variant="outlined"
-                            value={country}
-                            onChange={onCountryChange}
-                        >
-                            <MenuItem value="worldwide">
-                                <p className="app__menuItem">world wide</p>
-                            </MenuItem>
-                            {countries.map(country => <MenuItem key={country.value} value={country}>
-                                <p className="app__menuItem">{country.name}</p>
-                            </MenuItem>)}
-                        </Select>
-                    </FormControl>
-                </div>
-
+            <div className="app__countryList">
+                <FormControl className="app__formControl">
+                    <Select
+                        variant="outlined"
+                        value={country}
+                        onChange={onCountryChange}
+                    >
+                        <MenuItem value="worldwide">
+                            <p className="app__menuItem">world wide</p>
+                        </MenuItem>
+                        {countries.map(country => <MenuItem key={country.value} value={country}>
+                            <p className="app__menuItem">{country.name}</p>
+                        </MenuItem>)}
+                    </Select>
+                </FormControl>
             </div>
             <div className="app">
                 <div className="app__left">
@@ -119,20 +118,12 @@ const App = () => {
                             <InfoBox title="Deaths" animeDelay={600} bgColor="#EF4444" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
                         </div>
                     </Anime>
-
-                    {/* map */}
-
-
-
-
                 </div>
 
             </div >
 
             <div className="app__map">
-                <Anime scale={1} direction="alternate" duration={2000} delay={1000}>
-                    <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
-                </Anime>
+                <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
             </div>
 
             <div>
