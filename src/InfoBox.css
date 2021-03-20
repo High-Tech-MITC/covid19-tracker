@@ -10,15 +10,13 @@
     border-bottom-left-radius: 7%;
     height: 20vh;
     border-bottom-right-radius: 7%;
-    box-shadow: .2rem .2rem 2rem .1rem black;
+    box-shadow: .2rem .02rem 1rem .01rem black;
 }
 
 
 .InfoBox__CardContent{
     margin: 0;
     padding: 0;
-    /* background-color: black; */
-    height: 5vh;
 }
 
 .InfoBox__title{
@@ -26,6 +24,9 @@
     font-weight: 800;
     text-align: center;
     font-family: Pacifico;
+    margin-bottom: 10px;
+    position: relative;
+    top: 0;
 }
 
 .InfoBox__caseData{
@@ -39,7 +40,7 @@
 
 @media (max-width:640px){
     .InfoBox__CardContent{
-        max-height: 10px;
+        /* max-height: 10px; */
     }
 }
 
