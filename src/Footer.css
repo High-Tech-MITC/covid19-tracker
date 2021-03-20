@@ -33,3 +33,13 @@
     color: black;
     border-radius: 20px;
 }
+
+
+.footer__demo{
+    padding: 40px;
+    color: green;
+}
+
+.footer__demo h4{
+    text-align: center;
+}
