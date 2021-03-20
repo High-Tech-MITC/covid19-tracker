@@ -2,27 +2,33 @@ import React from 'react';
 import './InfoBox.css'
 import Anime from 'react-anime'
 
-const caseData = { backgroundColor: "black", color: 'white' };
 
 
 const toFormalNumber = (num) => {
     let formattedNumber = '';
-    // let stringNum = num.toString();
+    let index1 = '';
     console.log(typeof num)
-    let stringNum = typeof num === Number ? '' : num.toString();
 
-    for (let n = 0; n < stringNum.length; n++) {
-        if (n % 4 === 0) {
-            formattedNumber += ','
-        } else {
-            formattedNumber += stringNum[n]
+    if (typeof (num) === "number") {
+        let stringNum = typeof num === Number ? '' : num.toString();
+        index1 = stringNum[0]
+        for (let n = 0; n < stringNum.length; n++) {
+            if (n % 4 === 0) {
+                formattedNumber += ','
+            } else {
+                formattedNumber += stringNum[n]
+            }
         }
+    } else {
+        return num
     }
     console.log(formattedNumber)
-    return `${stringNum[0]} ${formattedNumber}`;
+    let toformalnumber = `${index1} ${formattedNumber}`
+    return toformalnumber;
 }
 
 const InfoBoxes = ({ title, cases, total, bgColor, animeDelay }) => {
+    const caseDataStyle = { fontWeight: 900, color: bgColor };
 
     return (
         <div className="Info">
@@ -37,15 +43,15 @@ const InfoBoxes = ({ title, cases, total, bgColor, animeDelay }) => {
                         {/* title */}
 
                         {/* number of cases */}
-                        <div className="InfoBox__caseData">
+                        <div className="InfoBox__caseDataStyle">
                             <h4 className="InfoBox__cases">
                                 <div className="InfoBox__dateHolder">Today</div>
-                                <div style={caseData}>{toFormalNumber(cases)}</div>
+                                <div style={caseDataStyle}>{toFormalNumber(cases)}</div>
                             </h4>
                             {/* total */}
                             <h4 className="InfoBox__cases">
                                 <div className="InfoBox__dateHolder">Total</div>
-                                <div style={caseData}>{total}</div>
+                                <div style={caseDataStyle}>{toFormalNumber(total)}</div>
                             </h4>
                         </div>
                     </div>
