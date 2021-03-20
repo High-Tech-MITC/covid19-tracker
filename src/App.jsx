@@ -20,7 +20,6 @@ import {
     Route,
     Link
 } from "react-router-dom"
-
 const App = () => {
 
     const [countries, setCountries] = useState([]);
@@ -76,7 +75,6 @@ const App = () => {
                 setMapZoom(4)
             })
     }
-
     return (
         <div>
             {/* <div className="app__mainheader">
@@ -93,6 +91,7 @@ const App = () => {
             <div className="app__countryList">
                 <FormControl className="app__formControl">
                     <Select
+                        className="app__dropdownList"
                         variant="outlined"
                         value={country}
                         onChange={onCountryChange}
@@ -123,6 +122,7 @@ const App = () => {
             </div >
 
             <div className="app__map">
+                <h1 className="app__map__header">Map Representation of <span>{country}</span></h1>
                 <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
             </div>
 

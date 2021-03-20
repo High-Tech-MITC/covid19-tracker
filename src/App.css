@@ -88,5 +88,22 @@ body{
 }
 
 .app__menuItem{
-    color: black;
+    color: white;
+}
+
+.MuiList-root{
+    background-color: black;
+}
+
+.MuiInputBase-root{
+    background: none;
+    border: none;
+}
+
+.app__map__header{
+    text-align: center;
+}
+
+.app__map__header span{
+    text-decoration: underline blue;
 }
