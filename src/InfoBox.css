@@ -35,13 +35,10 @@
 }
 
 
-.info__data{
-    padding: 20px;
-}
 
 @media (max-width:640px){
-    .InfoBox__CardContent{
-        /* max-height: 10px; */
+    .InfoBox__caseDataStyle{
+        font-size: 20px;
     }
 }
 
