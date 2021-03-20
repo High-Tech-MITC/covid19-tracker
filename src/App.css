@@ -6,15 +6,11 @@
     /* color: white; */
 }
 
-body{
-    /* background-color: #171c2b; */
+body{    
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.app{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 0px;
-}
 
 .app__map{
     background-color: whitesmoke;
@@ -22,27 +18,12 @@ body{
     padding: 30px;
 }
 
-.app__mainheader{
+.app__mainHeader{
     display: flex;
     justify-content: space-between;
-    position: fixed;
     top: 0;
-    width: 100vw;
-    background-color: green;
 }
 
-.app__header{
-    /* right: 0; */
-    display:flex;
-    align-items: center;
-    margin-bottom: 20px;
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: white;
-    color: black;
-    font-family: Pacifico;
-}
 
 .app__left{
     flex: 0.8;
@@ -53,8 +34,9 @@ body{
     background-color: rgb(67, 124, 204);
     border-radius: 20px;
     color: black;
-    /* max-height: 5vh; */
+    width: 90vw;
 }
+
 
 .app__formControl{
     width: 100%;
@@ -77,6 +59,12 @@ body{
     }
 }
 
+@media (max-width:640px){
+    body{
+        padding: 0;
+    }
+}
+
 .app__table{
     margin-top: 100px;
     margin-bottom: 100px;
@@ -88,7 +76,7 @@ body{
 }
 
 .app__menuItem{
-    color: white;
+    color: white !important;
 }
 
 .MuiList-root{

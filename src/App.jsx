@@ -31,15 +31,15 @@ const App = () => {
     // const [mapCountry, setMapCountry] = useState({})
 
     useEffect(() => {
-        fetch('http://disease.sh/v3/covid-19/all')
+        fetch('https://disease.sh/v3/covid-19/all')
             .then(response => response.json())
             .then(data => setCountryInfo(data))
     }, [])
 
-    // http://disease.sh/v3/covid-19/countries
+    // https://disease.sh/v3/covid-19/countries
     useEffect(() => {
         const getCountriesData = async () => {
-            await fetch("http://disease.sh/v3/covid-19/countries")
+            await fetch("https://disease.sh/v3/covid-19/countries")
                 .then(response => response.json())
                 .then(data => {
                     const countries = data.map(country => ({
@@ -63,8 +63,8 @@ const App = () => {
         const countryCode = event.target.value;
 
         const url = countryCode === 'worldwide' ?
-            'http://disease.sh/v3/covid-19/all' :
-            `http://disease.sh/v3/covid-19/countries/${countryCode.value}`;
+            'https://disease.sh/v3/covid-19/all' :
+            `https://disease.sh/v3/covid-19/countries/${countryCode.value}`;
 
         await fetch(url)
             .then(response => response.json())
@@ -82,29 +82,32 @@ const App = () => {
                 <h1 className="app__header">
                     Tr
                     <Anime rotate={360} duration={100000}>
-                        <img width={40} className="app__logo" src="https://www.un.org/sites/un2.un.org/files/covid-19.svg" style={{ bgColor: "red" }} alt="covid-19"></img>
+                        <img width={40} className="app__logo" src="httpss://www.un.org/sites/un2.un.org/files/covid-19.svg" style={{ bgColor: "red" }} alt="covid-19"></img>
                     </Anime>
                     cker
                 </h1>
             </div> */}
 
-            <div className="app__countryList">
-                <FormControl className="app__formControl">
-                    <Select
-                        className="app__dropdownList"
-                        variant="outlined"
-                        value={country}
-                        onChange={onCountryChange}
-                    >
-                        <MenuItem value="worldwide">
-                            <p className="app__menuItem">world wide</p>
-                        </MenuItem>
-                        {countries.map(country => <MenuItem key={country.value} value={country}>
-                            <p className="app__menuItem">{country.name}</p>
-                        </MenuItem>)}
-                    </Select>
-                </FormControl>
+            <div className="app__mainHeader">
+                <div className="app__countryList">
+                    <FormControl className="app__formControl">
+                        <Select
+                            className="app__dropdownList"
+                            variant="outlined"
+                            value={country}
+                            onChange={onCountryChange}
+                        >
+                            <MenuItem value="worldwide">
+                                <p className="app__menuItem">world wide</p>
+                            </MenuItem>
+                            {countries.map(country => <MenuItem key={country.value} value={country}>
+                                <p className="app__menuItem">{country.name}</p>
+                            </MenuItem>)}
+                        </Select>
+                    </FormControl>
+                </div>
             </div>
+
             <div className="app">
                 <div className="app__left">
 
@@ -122,7 +125,8 @@ const App = () => {
             </div >
 
             <div className="app__map">
-                <h1 className="app__map__header">Map Representation of <span>{country.name}</span></h1>
+                {console.log(country.name, " -----------")}
+                <h1 className="app__map__header">Map Representation of <span>{typeof country.name === "undefined" ? "worldwide" : country.name}</span></h1>
                 <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
             </div>
 
@@ -139,6 +143,8 @@ const App = () => {
 
 
             {/* <Footer /> */}
+
+            <Footer />
 
         </div>
 
