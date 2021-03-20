@@ -122,14 +122,14 @@ const App = () => {
             </div >
 
             <div className="app__map">
-                <h1 className="app__map__header">Map Representation of <span>{country}</span></h1>
+                <h1 className="app__map__header">Map Representation of <span>{country.name}</span></h1>
                 <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
             </div>
 
             <div>
                 <Card className="app__table">
                     <CardContent>
-                        <h3>Highest Country Cases</h3>
+                        <h3><center>Cases By Countries [ Highest ]</center></h3>
 
                         {/* table */}
                         <Table countries={tableData} />
