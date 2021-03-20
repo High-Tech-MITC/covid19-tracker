@@ -1,6 +1,7 @@
 .map{
     height:80vh;
     width: 90%;
+    background: white;
     margin: 6%;
     box-shadow: .2rem .2rem 2rem .1rem black;
 }

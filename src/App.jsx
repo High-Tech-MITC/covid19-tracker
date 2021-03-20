@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PreLoader from './PreLoader'
 import InfoBox from './InfoBox'
 import Map from './Map'
 import Table from './Table'
@@ -25,6 +26,7 @@ const App = () => {
     const [countries, setCountries] = useState([]);
     const [country, setCountry] = useState('worldwide');
     const [countryInfo, setCountryInfo] = useState({});
+    console.log(countries, "__________________________---------")
     const [tableData, setTableData] = useState([]);
     let [mapCenter, setMapCenter] = useState([43.45, 35.3])
     const [mapZoom, setMapZoom] = useState(4)
@@ -76,6 +78,7 @@ const App = () => {
             })
     }
     return (
+
         <div>
             {/* <div className="app__mainheader">
 
@@ -88,63 +91,70 @@ const App = () => {
                 </h1>
             </div> */}
 
-            <div className="app__mainHeader">
-                <div className="app__countryList">
-                    <FormControl className="app__formControl">
-                        <Select
-                            className="app__dropdownList"
-                            variant="outlined"
-                            value={country}
-                            onChange={onCountryChange}
-                        >
-                            <MenuItem value="worldwide">
-                                <p className="app__menuItem">world wide</p>
-                            </MenuItem>
-                            {countries.map(country => <MenuItem key={country.value} value={country}>
-                                <p className="app__menuItem">{country.name}</p>
-                            </MenuItem>)}
-                        </Select>
-                    </FormControl>
-                </div>
-            </div>
 
-            <div className="app">
-                <div className="app__left">
-
-                    {/* stats */}
-
-                    <Anime scale={0.9} direction="" easing="easeInCubic" duration={3000} delay={0}>
-                        <div className="app__stats">
-                            <InfoBox title="cases" animeDelay={700} bgColor="#F59E0B" cases={countryInfo.todayCases} total={countryInfo.cases} />
-                            <InfoBox title="recovered" animeDelay={400} bgColor="#10B981" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
-                            <InfoBox title="Deaths" animeDelay={600} bgColor="#EF4444" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
+            {countries.length < 2 ? <PreLoader /> :
+                <div>
+                    <div className="app__mainHeader">
+                        <div className="app__countryList">
+                            <FormControl className="app__formControl">
+                                <Select
+                                    className="app__dropdownList"
+                                    variant="outlined"
+                                    value={country}
+                                    onChange={onCountryChange}
+                                >
+                                    <MenuItem value="worldwide">
+                                        <p className="app__menuItem">world wide</p>
+                                    </MenuItem>
+                                    {countries.map(country => <MenuItem key={country.value} value={country}>
+                                        <p className="app__menuItem">{country.name}</p>
+                                    </MenuItem>)}
+                                </Select>
+                            </FormControl>
                         </div>
-                    </Anime>
+                    </div>
+
+                    <div className="app">
+                        <div className="app__left">
+
+                            {/* stats */}
+
+                            <Anime scale={0.9} direction="" easing="easeInCubic" duration={3000} delay={0}>
+                                <div className="app__stats">
+                                    <InfoBox title="cases" animeDelay={700} bgColor="#F59E0B" cases={countryInfo.todayCases} total={countryInfo.cases} />
+                                    <InfoBox title="recovered" animeDelay={400} bgColor="#10B981" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
+                                    <InfoBox title="Deaths" animeDelay={600} bgColor="#EF4444" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
+                                </div>
+                            </Anime>
+                        </div>
+
+                    </div >
+
+                    <div className="app__map">
+                        {console.log(country.name, " -----------")}
+                        <h1 className="app__map__header">Map Representation of <span>{typeof country.name === "undefined" ? "worldwide" : country.name}</span></h1>
+                        <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
+                    </div>
+
+                    <div>
+                        <Card className="app__table">
+                            <CardContent>
+                                <h3><center>Cases By Countries [ Highest ]</center></h3>
+
+                                {/* table */}
+                                <Table countries={tableData} />
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    {/* <Footer /> */}
+
+                    <Footer />
+
                 </div>
-
-            </div >
-
-            <div className="app__map">
-                {console.log(country.name, " -----------")}
-                <h1 className="app__map__header">Map Representation of <span>{typeof country.name === "undefined" ? "worldwide" : country.name}</span></h1>
-                <Map countries={countries} country={country} center={mapCenter} zoom={mapZoom} />
-            </div>
-
-            <div>
-                <Card className="app__table">
-                    <CardContent>
-                        <h3><center>Cases By Countries [ Highest ]</center></h3>
-
-                        {/* table */}
-                        <Table countries={tableData} />
-                    </CardContent>
-                </Card>
-            </div>
+            }
 
 
-            {/* <Footer /> */}
-
-            <Footer />
 
         </div>
 
