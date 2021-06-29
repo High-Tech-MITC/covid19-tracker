@@ -1,95 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-*{
-    padding: 0;
-    margin: 0;
-    /* color: white; */
-}
-
-body{    
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-
-.app__map{
-    padding: 30px;
-}
-
-.app__mainHeader{
-    display: flex;
-    justify-content: space-between;
-    top: 0;
-}
-
-
-.app__left{
-    flex: 0.8;
-}
-
-.app__countryList{
-    margin: 5%;
-    background-color: rgb(67, 124, 204);
-    border-radius: 20px;
-    color: black;
-    width: 90vw;
-}
-
-
-.app__formControl{
+@media (min-width: 768px) {
+  .app {
+    height: 80vh;
+    position: fixed;
     width: 100%;
-}
-.app__stats{
-    height: 90vh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+  }
+  .content {
+    width: 100%;
+  }
+
+  .app__map {
+    width: 50%;
+  }
+  .app__info {
+    width: 20%;
+  }
+
+  .app__table {
+    width: 30%;
+  }
 }
 
-.app__shadow{
-    border-radius: 20px;
-    box-shadow: .2rem .2rem 2rem .1rem black;
+/* map */
+
+.map {
+  height: 70vh;
+  width: 90%;
+  background: white;
+  margin: 1% 6%;
+  box-shadow: 0.2rem 0.2rem 2rem 0.1rem black;
 }
 
-@media (max-width:990px){
-    .app{
-        flex-direction: column;
-    }
+.map .leaflet-container {
+  height: 100%;
 }
 
-@media (max-width:640px){
-    body{
-        padding: 0;
-    }
+.map__popup {
+  text-align: center;
+  color: black;
 }
 
-.app__table{
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 20px;
-    margin-right: 20px;
-    /* padding: 20px 0px 10px 20px; */
-    height: 400px;
-    background: linear-gradient(rgb(50, 78, 83), rgb(121, 94, 94));
+.black {
+  color: black;
 }
 
-.app__menuItem{
-    color: white !important;
+/* table */
+
+table {
+  max-height: 70vh;
+  display: block;
+  overflow-y: scroll;
+  width: 100%;
 }
 
-.MuiList-root{
-    background-color: black;
+table tr {
+  display: flex;
+  justify-content: space-between;
 }
 
-.MuiInputBase-root{
-    background: none;
-    border: none;
+table td {
+  padding: 0.5rem;
+}
+table tr:nth-of-type(odd) {
+  background-color: rgb(29, 62, 138);
+  color: white;
 }
 
-.app__map__header{
-    text-align: center;
-}
+/* loading */
 
-.app__map__header span{
-    text-decoration: underline blue;
+.loader {
+  height: 100vh;
+  padding: 20%;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

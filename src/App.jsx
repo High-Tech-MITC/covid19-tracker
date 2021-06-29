@@ -1,23 +1,16 @@
 import React, { useEffect, useState } from "react";
 import PreLoader from "./PreLoader";
-import InfoBox from "./InfoBox";
+
 import Map from "./Map";
 import Table from "./Table";
 import Footer from "./Footer";
 import Info from "./Info";
+import "./tailwind.min.css";
 import "./App.css";
 import SearchCountry from "./SearchCountry";
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  Card,
-  CardContent,
-} from "@material-ui/core";
 import { sortData } from "./util";
 import "leaflet/dist/leaflet.css";
-import Anime from "react-anime";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 const App = () => {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
@@ -76,62 +69,47 @@ const App = () => {
   };
   return (
     <div>
-      {/* <div className="app__mainheader">
-
-                <h1 className="app__header">
-                    Tr
-                    <Anime rotate={360} duration={100000}>
-                        <img width={40} className="app__logo" src="httpss://www.un.org/sites/un2.un.org/files/covid-19.svg" style={{ bgColor: "red" }} alt="covid-19"></img>
-                    </Anime>
-                    cker
-                </h1>
-            </div> */}
-
       {countries.length == 2 ? (
         <PreLoader />
       ) : (
-        <div>
-          <SearchCountry
-            country={country}
-            countries={countries}
-            onCountryChange={onCountryChange}
-          />
-
-          <Info countryInfo={countryInfo} />
-
-          <div className="app__map">
-            {console.log(country.name, " -----------")}
-            <h1 className="app__map__header">
-              Map Representation of{" "}
-              <span>
-                {typeof country.name === "undefined"
-                  ? "worldwide"
-                  : country.name}
-              </span>
-            </h1>
-            <Map
-              countries={countries}
+        <div className="app">
+          <div className="flex justify-between bg-indigo-900 text-white p-5">
+            <div>
+              <h1 className="text-3xl">COVIDTracker</h1>
+            </div>
+            <SearchCountry
               country={country}
-              center={mapCenter}
-              zoom={mapZoom}
+              countries={countries}
+              onCountryChange={onCountryChange}
             />
           </div>
+          <div className="md:flex justify-between app__content">
+            <div className="max-w-96  app__info">
+              <Info countryInfo={countryInfo} />
+            </div>
+            <div className=" app__map">
+              {console.log(country.name, " -----------")}
+              <h1 className="text-2xl text-center mt-4 mb-4">
+                Map Representation of{" "}
+                <span className="bg-indigo-900 text-white p-1">
+                  {typeof country.name === "undefined"
+                    ? "worldwide"
+                    : country.name}
+                </span>
+              </h1>
+              <Map
+                countries={countries}
+                country={country}
+                center={mapCenter}
+                zoom={mapZoom}
+              />
+            </div>
 
-          <div>
-            <Card className="app__table">
-              <CardContent>
-                <h3>
-                  <center>Cases By Countries [ Highest ]</center>
-                </h3>
-
-                {/* table */}
-                <Table countries={tableData} />
-              </CardContent>
-            </Card>
+            {/* table */}
+            <Table countries={tableData} />
           </div>
 
           {/* <Footer /> */}
-
           <Footer />
         </div>
       )}

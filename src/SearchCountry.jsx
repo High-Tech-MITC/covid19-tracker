@@ -1,24 +1,18 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  Card,
-  CardContent,
-} from "@material-ui/core";
+import { FormControl, Select, MenuItem } from "@material-ui/core";
 
 const SearchCountry = ({ country, countries, onCountryChange }) => {
   return (
     <div className="app__mainHeader">
       <div className="app__countryList">
-        <FormControl className="app__formControl">
+        <FormControl className="text-white">
           <Select
-            className="app__dropdownList"
+            className="text-white"
             variant="outlined"
             value={country}
             onChange={onCountryChange}
           >
             <MenuItem value="worldwide">
-              <p className="app__menuItem">world wide</p>
+              <p className="text-white">world wide</p>
             </MenuItem>
             {countries.map((country) => (
               <MenuItem key={country.value} value={country}>

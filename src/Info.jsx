@@ -3,7 +3,7 @@ import InfoBox from "./InfoBox";
 
 const Info = ({ countryInfo }) => {
   return (
-    <div className="app">
+    <div className="">
       <div className="app__left">
         {/* stats */}
 

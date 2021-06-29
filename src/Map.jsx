@@ -1,50 +1,53 @@
-import React from 'react';
-import './Map.css'
-import { Map as LeafletMap, TileLayer, Popup, CircleMarker } from 'react-leaflet';
+import React from "react";
 
+import {
+  Map as LeafletMap,
+  TileLayer,
+  Popup,
+  CircleMarker,
+} from "react-leaflet";
 
 const Map = ({ countries, country, center, zoom }) => {
-    return (
-        <div className="map">
-            <LeafletMap center={center} zoom={zoom}>
-                <TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+  return (
+    <div className="map">
+      <LeafletMap center={center} zoom={zoom}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-                <CircleMarker center={center} color="green" radius={20}>
-                    <Popup>
-                        <div className="map__popup">
-                            {country.name} <br />
-                            {country.cases} <br />
-                            {country.deaths} <br />
-                        </div>
-                    </Popup>
-                </CircleMarker>
+        <CircleMarker center={center} color="green" radius={20}>
+          <Popup>
+            <div className="map__popup">
+              {country.name} <br />
+              {country.cases} <br />
+              {country.deaths} <br />
+            </div>
+          </Popup>
+        </CircleMarker>
 
-
-                {countries.map(country => {
-                    const reduceSquare = (value) => {
-                        return (
-                            Math.floor(Math.sqrt(value / 1000))
-                        )
-                    }
-                    return (
-                        <CircleMarker radius={reduceSquare(country.cases)} color="black" center={country.center}>
-                            <Popup>
-                                <div className="map__popup">
-                                    <h2 className="black">{country.name}</h2>
-                                    <div className="cases black">
-                                        {country.cases}
-                                    </div>
-                                </div>
-                            </Popup>
-                        </CircleMarker>
-                    )
-
-                })}
-
-            </LeafletMap>
-        </div>
-    );
-}
+        {countries.map((country) => {
+          const reduceSquare = (value) => {
+            return Math.floor(Math.sqrt(value / 1000));
+          };
+          return (
+            <CircleMarker
+              radius={reduceSquare(country.cases)}
+              color="black"
+              center={country.center}
+            >
+              <Popup>
+                <div className="map__popup">
+                  <h2 className="black">{country.name}</h2>
+                  <div className="cases black">{country.cases}</div>
+                </div>
+              </Popup>
+            </CircleMarker>
+          );
+        })}
+      </LeafletMap>
+    </div>
+  );
+};
 
 export default Map;
