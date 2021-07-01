@@ -8,15 +8,7 @@ import {
 } from "react-leaflet";
 
 const Map = ({ countries, country, center, zoom }) => {
-  const [moveMapCenter, setMoveMapCenter] = useState(10);
-  const [moveCenter, setMoveCenter] = useState(true);
-
-  useEffect(() => {
-    setInterval(() => {
-      moveCenter ? setMoveMapCenter(20) : setMoveMapCenter(10);
-      setMoveCenter(!moveCenter);
-    }, 100);
-  }, []);
+ 
   return (
     <div className="map">
       <LeafletMap center={center} zoom={zoom}>
@@ -25,7 +17,7 @@ const Map = ({ countries, country, center, zoom }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <CircleMarker center={center} color="green" radius={moveMapCenter}>
+        <CircleMarker center={center} color="green" radius={20}>
           <Popup>
             <div className="map__popup">
               {country.name} <br />
